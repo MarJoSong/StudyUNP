@@ -1,2 +1,4 @@
 #不跟踪项目根路径下以cmake-build-开头的文件夹及里面的文件
 /cmake-build-*/   
+
+/.idea/

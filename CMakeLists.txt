@@ -7,3 +7,5 @@ add_subdirectory(utils)
 add_subdirectory(Chapter1)
 
 add_subdirectory(Chapter5)
+
+add_subdirectory(demo)
