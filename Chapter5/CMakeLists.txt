@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.16)
 
 get_filename_component(CURRENT_FOLDER ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
@@ -13,5 +13,11 @@ link_directories(../lib)
 add_executable(tcpserv01 tcpserv01.c)
 target_link_libraries(tcpserv01 -lutils)
 
+add_executable(tcpserv02 tcpserv02.c)
+target_link_libraries(tcpserv02 -lutils)
+
 add_executable(tcpcliv01 tcpcliv01.c)
 target_link_libraries(tcpcliv01 -lutils)
+
+add_executable(tcpcliv02 tcpcliv02.c)
+target_link_libraries(tcpcliv02 -lutils)

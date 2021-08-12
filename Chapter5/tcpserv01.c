@@ -67,6 +67,7 @@ int main(int argc, char **argv) {
 
   MySignal(SIGCHLD, sig_child);
 
+  sleep(10);
   for (;;) {
     struct sockaddr_in cliaddr;
     int clilen = sizeof(cliaddr);

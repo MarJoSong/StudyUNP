@@ -7,14 +7,21 @@ void my_str_cli(int sockfd) {
   char sendline[MAXLINE], recvline[MAXLINE];
 
   while (Fgets(sendline, MAXLINE, stdin) != NULL) {
-    fprintf(stderr, "input:%s", sendline);
+#if 0
     Write(sockfd, sendline, strlen(sendline));
+#else
+    //在客户端阻塞于输入时杀死服务端子进程
+    //客户端第一次写收到RST
+    //第二次写会收到SIGPIPE
+    Write(sockfd, sendline, 1);
+    sleep(1);
+    Write(sockfd, sendline+1, strlen(sendline)-1);
+#endif
 
     if (Readline(sockfd, recvline, MAXLINE) == 0)
       err_quit("str_cli: server terminated permaturely");
 
-    Fputs(recvline, stdout);
-    fprintf(stderr, "recv:%s", recvline);
+    Fputs(recvline, stderr);
   }
 }
 
@@ -34,6 +41,5 @@ int main(int argc, char **argv) {
 
   my_str_cli(sockfd);
 
-  close(sockfd);
   exit(0);
 }
