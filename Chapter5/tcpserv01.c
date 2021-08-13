@@ -46,6 +46,8 @@ void str_echo(int sockfd) {
     Write(sockfd, buf, strlen(buf));
   }
 
+  fprintf(stderr, "n:%d\n", n);
+
   if (n<0&& errno==EINTR)
     goto again;
   else if (n<0)
@@ -67,7 +69,7 @@ int main(int argc, char **argv) {
 
   MySignal(SIGCHLD, sig_child);
 
-  sleep(10);
+  //sleep(10);
   for (;;) {
     struct sockaddr_in cliaddr;
     int clilen = sizeof(cliaddr);
