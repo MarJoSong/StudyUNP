@@ -6,6 +6,10 @@ project(${CURRENT_FOLDER} C)
 
 set(CMAKE_C_STANDARD 11)
 
+#add_definitions(-DENDIAN_TEST)
+#add_definitions(-DFINL_4_SEG) #四次挥手
+add_definitions(-DECHO_TEST)
+
 include_directories(../utils)
 
 link_directories(../lib)
