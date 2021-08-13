@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.18)
 
 get_filename_component(CURRENT_FOLDER ${CMAKE_CURRENT_SOURCE_DIR} NAME)
 
@@ -10,5 +10,5 @@ include_directories(../utils)
 
 link_directories(../lib)
 
-add_executable(getsockname6 getsockname6.c)
-target_link_libraries(getsockname6 -lutils)
+add_executable(getsockname getsockname.c)
+target_link_libraries(getsockname -lutils)
