@@ -7,13 +7,11 @@
 void my_cli_deal(int sockfd) {
 #if defined(ECHO_TEST)
   char sendline[MAXLINE], recvline[MAXLINE];
-  bzero(sendline, MAXLINE);
 
   while (Fgets(sendline, MAXLINE, stdin) != NULL) {
 #if 1
     Write(sockfd, sendline, strlen(sendline));
     //读入数据之前需要清空缓存区
-    bzero(sendline, MAXLINE);
 #else
     //在客户端阻塞于输入时杀死服务端子进程
     //客户端第一次写收到RST

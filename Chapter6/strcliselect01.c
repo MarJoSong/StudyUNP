@@ -3,6 +3,11 @@
 //
 #include "unp.h"
 
+/*
+ * 使用select同时监听标准输入和套接字，
+ * 避免发生服务器端已关闭，而客户端仍然阻塞在标准输入的情况
+ */
+
 void my_str_cli(FILE *fp, int sockfd) {
   int maxfd;
   fd_set rset;
@@ -20,8 +25,14 @@ void my_str_cli(FILE *fp, int sockfd) {
 
     if (FD_ISSET(sockfd, &rset)) {
       bzero(sendline, MAXLINE);
+#if 0
       if (Readline(sockfd, recvline, MAXLINE) == 0)
         err_quit("str_cli: server terminated permaturely");
+#else
+      int n=read(sockfd, recvline, MAXLINE);
+      if (n == 0)
+        err_quit("str_cli: server terminated permaturely");
+#endif
       Fputs(recvline, stdout);
     }
 

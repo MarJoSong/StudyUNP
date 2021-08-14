@@ -12,3 +12,6 @@ link_directories(../lib)
 
 add_executable(strcliselect01 strcliselect01.c)
 target_link_libraries(strcliselect01 -lutils)
+
+add_executable(strcliselect02 strcliselect02.c)
+target_link_libraries(strcliselect02 -lutils)
