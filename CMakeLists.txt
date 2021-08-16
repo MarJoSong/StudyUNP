@@ -12,4 +12,6 @@ add_subdirectory(06_iomultiplexing)
 
 add_subdirectory(07_sockopt)
 
+add_subdirectory(15_unixdomain)
+
 add_subdirectory(demo)
