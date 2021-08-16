@@ -4,10 +4,12 @@ project(UNP C)
 
 add_subdirectory(utils)
 
-add_subdirectory(Chapter1)
+add_subdirectory(01_intro)
 
-add_subdirectory(Chapter5)
+add_subdirectory(02_tcpcliserv)
 
-add_subdirectory(Chapter6)
+add_subdirectory(06_iomultiplexing)
+
+add_subdirectory(07_sockopt)
 
 add_subdirectory(demo)
